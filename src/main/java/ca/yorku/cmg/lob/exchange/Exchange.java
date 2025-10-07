@@ -134,8 +134,7 @@ public class Exchange {
 			//Update balances for Buyer
 			
 			//Get the fee that they buyer is supposed to pay
-			int buyerFee = accounts.getTraderAccount(t.getBuyer()).getFee(t);
-			t.setBuyerFee(buyerFee);
+			t.setBuyerFee(accounts.getTraderAccount(t.getBuyer()).getFee(t));
 			//Apply the above fee to the account balance of the buyer 			
 			accounts.getTraderAccount(t.getBuyer()).applyFee(t);
 			//Apply the trade payment to the account balance of the buyer (they spent money)
@@ -146,8 +145,7 @@ public class Exchange {
 			//Update balances for Seller
 			
 			//Get the fee that the seller is supposed to pay
-			int sellerFee = accounts.getTraderAccount(t.getSeller()).getFee(t);
-			t.setSellerFee(sellerFee);
+			t.setSellerFee(accounts.getTraderAccount(t.getSeller()).getFee(t));
 			//Apply the above fee to the account balance of the seller
 			accounts.getTraderAccount(t.getSeller()).applyFee(t);
 			//Apply the trade payment to the account balance of the seller (they earned money)
